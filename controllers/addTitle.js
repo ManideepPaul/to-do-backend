@@ -18,7 +18,9 @@ export const addTitle = async (req, res) => {
         res.status(201).json({
             success: true,
             message: "Title name saved successfully",
-            resp
+            resp,
+            // To get the id of newly created title
+            // id: (resp.title[title.length - 1])._id
         })
     } catch (error) {
         console.log(error.message)
