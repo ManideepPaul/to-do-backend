@@ -8,6 +8,7 @@ import { deleteUser } from '../controllers/deleteUser.js'
 import { editTask } from '../controllers/editTask.js'
 import { editTitle } from '../controllers/editTitle.js'
 import { editUser } from '../controllers/editUser.js'
+import { findAllUser } from '../controllers/findAllUser.js'
 import { home } from '../controllers/home.js'
 const router = express.Router()
 
@@ -21,5 +22,6 @@ router.delete('/deleteUser/:id', deleteUser)
 router.put('/editTask/:id/:titleId/:index', editTask)
 router.put('/editTitle/:id/:titleId/', editTitle)
 router.put('/editUser/:id/', editUser)
+router.get('/findAllUser', findAllUser)
 
 export default router
