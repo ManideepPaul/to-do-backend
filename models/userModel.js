@@ -10,8 +10,14 @@ const userSchema = new Schema({
     },
     title: [{
         titleName: String,
-        tasks: [String],
+        tasks: [{
+            type: String
+        }],
     }]
-})
+}, 
+{
+    timestamps: true
+}
+)
 
 export default mongoose.model("User", userSchema)
