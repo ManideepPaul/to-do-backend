@@ -1,6 +1,8 @@
 import User from "../models/userModel.js";
 
-export const deleteUser = async ( req, res) => {
+export const deleteUser = async (req, res) => {
+
+    const { id } = req.params;
     try {
         const user = await User.findByIdAndDelete(req.params.id)
         res.status(201).json({

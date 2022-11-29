@@ -1,12 +1,15 @@
 import User from "../models/userModel.js";
 
 export const addTitle = async (req, res) => {
+
+    // getting the id from params
+    const { id } = req.params;
+
+    // getting the title from the body
+    const { title } = req.body;
     try {
         // fetching the user using id
-        const resp = await User.findById(req.params.id)
-
-        // getting the title from the body
-        const { title } = req.body;
+        const resp = await User.findById(id)
 
         // Pushing the title as titleName inside the title array 
         resp.title.push({

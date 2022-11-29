@@ -1,8 +1,10 @@
 import User from "../models/userModel.js";
 
 export const findUser = async (req, res) => {
+
+    const { id } = req.params;
+    
     try {
-        const { id } = req.params;
         const user = await User.findById(id);
         res.status(201).json({
             success: true,
