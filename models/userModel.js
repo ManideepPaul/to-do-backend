@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const {Schema} = mongoose;
+const { Schema } = mongoose;
 
 const titleSchema = new Schema({
     titleName: String,
@@ -15,6 +15,11 @@ const userSchema = new Schema({
         required: [true, "Name is required"],
         trim: true,
     },
+    email: {
+        type: String,
+        unique: true,
+    },
+    password: { String },
     title: [titleSchema]
 }
 )
