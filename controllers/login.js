@@ -26,12 +26,14 @@ export const login = async (req, res) => {
         const matchPassword = await bcrypt.compare(password, user.password);
 
         if(user && matchPassword){
+
+            // Creating JWT token
             const token = jwt.sign(
                 {userId: user._id},
                 process.env.SECRET_KEY,
                 {expiresIn: '2h'}
             )
-                console.log(token)
+
             user.password = undefined;
 
             // Cookie options

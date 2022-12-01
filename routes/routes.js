@@ -9,6 +9,7 @@ import { editTask } from '../controllers/editTask.js'
 import { editTitle } from '../controllers/editTitle.js'
 import { editUser } from '../controllers/editUser.js'
 import { findUser } from '../controllers/findUser.js'
+import { auth } from '../middleware/auth.js'
 import { home } from '../controllers/home.js'
 import { login } from '../controllers/login.js'
 const router = express.Router()
@@ -24,6 +25,6 @@ router.delete('/deleteUser/:id', deleteUser)
 router.put('/editTask/:id/:titleId/:index', editTask)
 router.put('/editTitle/:id/:titleId/', editTitle)
 router.put('/editUser/:id/', editUser)
-router.get('/findUser/:id', findUser)
+router.post('/findUser/:id', auth, findUser)
 
 export default router
