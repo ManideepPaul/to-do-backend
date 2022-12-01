@@ -25,6 +25,6 @@ router.delete('/deleteUser/:id', deleteUser)
 router.put('/editTask/:id/:titleId/:index', editTask)
 router.put('/editTitle/:id/:titleId/', editTitle)
 router.put('/editUser/:id/', editUser)
-router.post('/findUser/:id', auth, findUser)
+router.get('/findUser/:id', auth, findUser)
 
 export default router
