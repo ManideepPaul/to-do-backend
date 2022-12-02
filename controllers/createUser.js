@@ -12,10 +12,11 @@ export const createUser = async (req, res) => {
         // Check is email exist
         const emailExist = await User.findOne({email: lowerEmail});
 
-        if(emailExist) res.json({
+        if(emailExist) {
+            return res.json({
             success: false,
             message: "User already exist"
-        })
+        })}
 
         // Hashing the password
         const hashPassword = await bcrypt.hash(password, 10)
