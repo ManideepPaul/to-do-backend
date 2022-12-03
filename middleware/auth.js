@@ -16,7 +16,7 @@ export const auth = async (req, res, next) => {
             message: 'Token missing'
         })
         const verifyToken = jwt.verify(token, process.env.SECRET_KEY)
-        console.log(verifyToken)
+        req.dataFromMiddleware = verifyToken.userId
     } catch (error) {
         return res.status(401).json({
             success: false,
