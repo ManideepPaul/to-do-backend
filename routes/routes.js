@@ -12,6 +12,7 @@ import { findUser } from '../controllers/findUser.js'
 import { auth } from '../middleware/auth.js'
 import { home } from '../controllers/home.js'
 import { login } from '../controllers/login.js'
+import { logout } from '../controllers/logout.js'
 const router = express.Router()
 
 router.get('/', home)
@@ -26,5 +27,6 @@ router.put('/editTask/:id/:titleId/:index', editTask)
 router.put('/editTitle/:id/:titleId/', editTitle)
 router.put('/editUser/:id/', editUser)
 router.get('/findUser', auth, findUser)
+router.get('/logout', logout)
 
 export default router
