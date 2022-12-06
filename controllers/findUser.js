@@ -6,6 +6,8 @@ export const findUser = async (req, res) => {
         const userId = req.dataFromMiddleware
 
         const user = await User.findById(userId);
+        user.password = undefined;
+
         res.status(201).json({
             success: true,
             message: "User Found",
