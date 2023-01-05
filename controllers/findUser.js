@@ -5,7 +5,15 @@ export const findUser = async (req, res) => {
         // Getting the userId from the auth.js middleware
         const userId = req.dataFromMiddleware
 
-        const user = await User.findById(userId);
+        // Arranging the title array according to updatedAt
+        const user = await User.findByIdAndUpdate(userId, {
+            $push: {
+                title: {
+                    $each: [],
+                    $sort: { updatedAt: -1 }
+                }
+            }
+        });
         user.password = undefined;
 
         res.status(201).json({
